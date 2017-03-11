@@ -4,9 +4,8 @@ module.exports = function (grunt) {
       dist: {
         options: {
           transform: [
-            ["babelify", {
-              presets: ["react"]
-            }]
+            ["babelify", {presets: ["react"]}],
+            ["grunt-less-browserify"]
           ]
         },
         files: {
@@ -14,9 +13,13 @@ module.exports = function (grunt) {
         }
       }
     },
+    lessBrowserify: {
+      output:  'dist/module.css',
+      jsAppend: false
+    },
     watch: {
       scripts: {
-        files: ["./modules/**/*.js"],
+        files: ["./modules/**/*.js", "./css/**/*.css"],
         tasks: ["browserify"]
       }
     }
