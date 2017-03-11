@@ -91,3 +91,6 @@ ENV/
 # nodejs
 webpage/node_modules
 webpage/dist
+
+# .idea
+.idea

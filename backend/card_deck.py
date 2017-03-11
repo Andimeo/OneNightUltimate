@@ -1,0 +1,2 @@
+class CardDeck(object):
+    pass
