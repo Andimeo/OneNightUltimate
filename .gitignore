@@ -87,3 +87,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# nodejs
+webpage/node_modules
+webpage/dist
