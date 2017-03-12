@@ -8,6 +8,7 @@ module.exports = React.createClass({
   },
   startGame: function () {
     this.props.dispatch(actions.actions.startGame());
+    this.props.dispatch(actions.actions.startSelection());
   },
   render: function () {
     if (this.props.page !== actions.PageStates.ROOM) {

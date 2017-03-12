@@ -1,0 +1,16 @@
+.card {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    border: solid 5px black;
+}
+
+.card > div {
+    vertical-align: middle;
+}
+
+.card_selected {
+    border: solid 5px gold;
+}

@@ -4,7 +4,8 @@ var GameTable = require('../components/GameTable');
 var mapStateToProps = function (state) {
   return {
     page: state.page,
-    name: state.name
+    name: state.name,
+    cards: state.cards
   };
 };
 

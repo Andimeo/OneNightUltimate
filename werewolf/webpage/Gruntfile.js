@@ -9,22 +9,21 @@ module.exports = function (grunt) {
           ]
         },
         files: {
-          "./dist/module.js": ["./modules/index.js"]
+          "dist/module.js": ["modules/index.js"]
         }
       }
     },
     lessBrowserify: {
-      output:  'dist/module.css',
+      output: 'dist/module.css',
       jsAppend: false
     },
     watch: {
       scripts: {
-        files: ["./modules/**/*.js", "./css/**/*.css"],
+        files: ["modules/**.{js, css}"],
         tasks: ["browserify"]
       }
     }
   });
-
   grunt.loadNpmTasks("grunt-browserify");
   grunt.loadNpmTasks("grunt-contrib-watch");
 

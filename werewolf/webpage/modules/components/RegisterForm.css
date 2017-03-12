@@ -1,0 +1,33 @@
+.register_form {
+    position: fixed;
+    text-align: center;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.register_form > div {
+    margin-bottom: 80px;
+}
+
+.register_form > div:first-child {
+    font-size: 120px;
+    font-weight: bolder;
+}
+
+.register_form > div:last-child {
+    margin-bottom: 0;
+}
+
+.register_form input {
+    text-align: center;
+    border: none;
+    border-bottom: solid 5px darkgray;
+}
+
+.register_form button {
+    text-align: center;
+    padding: 30px;
+}

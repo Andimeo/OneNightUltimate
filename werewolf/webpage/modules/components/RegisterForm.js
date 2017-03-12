@@ -1,3 +1,4 @@
+require('./RegisterForm.css');
 var React = require('react');
 var actions = require('../actions');
 
@@ -6,7 +7,6 @@ module.exports = React.createClass({
     page: React.PropTypes.string.isRequired
   },
   doEnter: function () {
-    console.log(this);
     this.props.dispatch(actions.actions.doEnter(this.refs.name.value.trim()));
   },
   render: function () {
@@ -14,13 +14,16 @@ module.exports = React.createClass({
       return null;
     } else {
       return (
-        <div>
-          <h1>{"Register Form"}</h1>
-          <label>{"Your Name: "}</label><input type="text" ref="name"/>
-          <br />
-          <button type="button" onClick={this.doEnter}>
-            {"Enter Room"}
-          </button>
+        <div className="register_form">
+          <div>{"Your Name"}</div>
+          <div>
+            <input type="text" ref="name"/>
+          </div>
+          <div>
+            <button type="button" onClick={this.doEnter}>
+              {"Enter Room"}
+            </button>
+          </div>
         </div>
       );
     }
