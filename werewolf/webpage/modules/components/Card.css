@@ -1,14 +1,15 @@
 .card {
     display: inline-block;
-    width: 200px;
-    height: 200px;
-    line-height: 200px;
+    width: 160px;
+    height: 160px;
+    line-height: 80px;
     text-align: center;
+    vertical-align: middle;
     border: solid 5px black;
 }
 
 .card > div {
-    vertical-align: middle;
+    font-size: 40px;
 }
 
 .card_selected {

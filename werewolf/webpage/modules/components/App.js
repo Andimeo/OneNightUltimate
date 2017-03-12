@@ -1,7 +1,7 @@
 var React = require("react");
 var actions = require("../actions");
 var RegisterPage = require("../containers/RegisterPage");
-var RoomPage = require("../containers/RoomPage");
+var RolesPage = require("../containers/RolesPage");
 var GamePage = require("../containers/GamePage");
 
 module.exports = React.createClass({
@@ -9,7 +9,7 @@ module.exports = React.createClass({
     return (
       <div>
         <RegisterPage />
-        <RoomPage />
+        <RolesPage />
         <GamePage />
       </div>
     );

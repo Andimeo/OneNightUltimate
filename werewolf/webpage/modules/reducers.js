@@ -3,24 +3,14 @@ var actions = require("./actions");
 var initialCardState = {
   role: "",
   userName: "",
-  isSelected: true,
+  isSelected: false,
   isEnableSelect: false
 };
 
 var initialState = {
-  page: actions.PageStates.REGISTER,
+  page: actions.PageStates.REGISTER_PAGE,
   name: "",
-  cards: [
-    Object.assign({}, initialCardState, {userName: "1"}),
-    Object.assign({}, initialCardState, {userName: "2"}),
-    Object.assign({}, initialCardState, {userName: "3"}),
-    Object.assign({}, initialCardState, {userName: "4"}),
-    Object.assign({}, initialCardState, {userName: "5"}),
-    Object.assign({}, initialCardState, {userName: "6"}),
-    Object.assign({}, initialCardState),
-    Object.assign({}, initialCardState),
-    Object.assign({}, initialCardState)
-  ]
+  cards: []
 };
 
 var page = function (state, action) {
@@ -29,11 +19,17 @@ var page = function (state, action) {
   }
   switch (action.type) {
     case actions.actionTypes.DO_ENTER:
-      return actions.PageStates.ROOM;
-    case actions.actionTypes.START_GAME:
-      return actions.PageStates.GAMING;
-    case actions.actionTypes.BACK_TO_ROOM:
-      return actions.PageStates.ROOM;
+    case actions.actionTypes.RESTART_GAME:
+      window.client.send(action);
+      break;
+    case actions.actionTypes.CONFIRM_ENTER:
+      if (action.isHost) {
+        return actions.PageStates.ROLES_PAGE;
+      } else {
+        return actions.PageStates.GAMING_PAGE;
+      }
+    case actions.actionTypes.GAME_BEGIN:
+      return actions.PageStates.GAMING_PAGE;
   }
   return state;
 };
@@ -45,9 +41,6 @@ var name = function (state, action) {
   switch (action.type) {
     case actions.actionTypes.DO_ENTER:
       return action.name;
-    case actions.actionTypes.START_GAME:
-    case actions.actionTypes.BACK_TO_ROOM:
-      return state;
   }
   return state;
 };
@@ -57,9 +50,37 @@ var cards = function (state, action) {
     return initialState.cards;
   }
   switch (action.type) {
+    case actions.actionTypes.CONFIRM_ENTER:
+      if (action.isHost) {
+        return ["化身幽灵", "狼人", "狼人", "爪牙", "守夜人", "守夜人", "预言家",
+          "强盗", "捣蛋鬼", "酒鬼", "失眠者", "村民", "村民", "村民", "皮匠",
+          "猎人"].map(function (role) {
+            return Object.assign({}, initialCardState, {
+              role: role,
+              isEnableSelect: true
+            });
+          });
+      }
+      break;
+    case actions.actionTypes.GAME_BEGIN:
+      return action.players.map(function (player, index) {
+        if (index === action.myInfo.index) {
+          return Object.assign({}, initialCardState, {
+            userName: player.name,
+            role: action.myInfo.role
+          });
+        } else {
+          return Object.assign({}, initialCardState, {
+            userName: player.name
+          });
+        }
+      }).concat([
+        Object.assign({}, initialCardState),
+        Object.assign({}, initialCardState),
+        Object.assign({}, initialCardState)
+      ]);
     case actions.actionTypes.START_SELECTION:
       return state.map(function (card) {
-        console.log(card);
         return Object.assign({}, card, {
           isSelected: false,
           isEnableSelect: true
@@ -73,6 +94,12 @@ var cards = function (state, action) {
         return card;
       });
     case actions.actionTypes.FINISH_SELECTION:
+      var selectedIndex = state.map(function (card, index) {
+        if (card.isSelected) {
+          return index;
+        }
+      });
+      window.client.send({type: action.type, selectedIndex: selectedIndex});
       return state.map(function (card) {
         return Object.assign({}, card, {
           isSelected: false,

@@ -1,4 +1,5 @@
 var ReactRedux = require("react-redux");
+var actions = require("../actions");
 var GameTable = require("../components/GameTable");
 
 var mapStateToProps = function (state) {
@@ -9,4 +10,13 @@ var mapStateToProps = function (state) {
   };
 };
 
-module.exports = ReactRedux.connect(mapStateToProps)(GameTable);
+var mapDispatchToProps = function (dispatch, ownProps) {
+  return {
+    restartGame: function() {
+      dispatch(actions.actions.restartGame());
+    }
+  };
+};
+
+module.exports = ReactRedux.connect(
+  mapStateToProps, mapDispatchToProps)(GameTable);

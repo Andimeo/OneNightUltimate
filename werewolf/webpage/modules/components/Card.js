@@ -21,8 +21,8 @@ module.exports = React.createClass({
     });
     return (
       <div className={cardStyle} onClick={this.onClick}>
-        <div>{this.props.role}</div>
         <div>{this.props.userName}</div>
+        <div>{this.props.role}</div>
       </div>
     );
   }

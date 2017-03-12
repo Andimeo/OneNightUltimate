@@ -10,7 +10,7 @@ module.exports = React.createClass({
     this.props.dispatch(actions.actions.doEnter(this.refs.name.value.trim()));
   },
   render: function () {
-    if (this.props.page !== actions.PageStates.REGISTER) {
+    if (this.props.page !== actions.PageStates.REGISTER_PAGE) {
       return null;
     } else {
       return (

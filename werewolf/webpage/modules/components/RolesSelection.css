@@ -1,13 +1,13 @@
-.game_table > div {
+.roles_selection > div {
     text-align: center;
 }
 
-.game_table button {
+.roles_selection button {
     text-align: center;
     margin-top: 50px;
     padding: 30px;
 }
 
-.cards > div {
+.role_cards > div {
     margin: 30px 30px;
 }

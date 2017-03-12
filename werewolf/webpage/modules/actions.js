@@ -1,28 +1,35 @@
 var actionTypes = {
   DO_ENTER: "DO_ENTER",
-  START_GAME: "START_GAME",
-  BACK_TO_ROOM: "BACK_TO_ROOM",
+  CONFIRM_ENTER: "CONFIRM_ENTER",
+
+  GAME_BEGIN: "GAME_BEGIN",
 
   START_SELECTION: "START_SELECTION",
   TOGGLE_SELECTION: "TOGGLE_SELECTION",
-  FINISH_SELECTION: "FINISH_SELECTION"
+  FINISH_SELECTION: "FINISH_SELECTION",
+
+  START_SHOWING: "START_SHOWING",
+  FINISH_SHOWING: "FINISH_SHOWING",
+
+  RESTART_GAME: "RESTART_GAME"
 };
 
 var PageStates = {
-  REGISTER: "REGISTER",
-  ROOM: "ROOM",
-  GAMING: "GAMING"
+  REGISTER_PAGE: "REGISTER_PAGE",
+  ROLES_PAGE: "ROLES_PAGE",
+  GAMING_PAGE: "GAMING_PAGE"
 };
 
 var actions = {
   doEnter: function (name) {
     return {type: actionTypes.DO_ENTER, name: name};
   },
-  startGame: function () {
-    return {type: actionTypes.START_GAME};
+  confirmEnter: function (isHost) {
+    return {type: actionTypes.CONFIRM_ENTER, isHost: isHost};
   },
-  backToRoom: function () {
-    return {type: actionTypes.BACK_TO_ROOM};
+  gameBegin: function (players, myInfo) {
+    // players = [{name}], myInfo = {index, role}
+    return {type: actionTypes.GAME_BEGIN, players: players, myInfo: myInfo};
   },
   startSelection: function () {
     return {type: actionTypes.START_SELECTION};
@@ -32,6 +39,9 @@ var actions = {
   },
   finishSelection: function () {
     return {type: actionTypes.FINISH_SELECTION};
+  },
+  restartGame: function () {
+    return {type: actionTypes.RESTART_GAME};
   }
 };
 

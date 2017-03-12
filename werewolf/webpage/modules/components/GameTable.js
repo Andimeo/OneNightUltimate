@@ -16,14 +16,15 @@ module.exports = React.createClass({
           isEnableSelect: React.PropTypes.bool.isRequired
         }
       )
-    )
+    ),
+    restartGame: React.PropTypes.func.isRequired
   },
-  backToRoom: function () {
-    this.props.dispatch(actions.actions.backToRoom());
-    this.props.dispatch(actions.actions.finishSelection());
+  restartGame: function (e) {
+    e.preventDefault();
+    this.props.restartGame();
   },
   render: function () {
-    if (this.props.page !== actions.PageStates.GAMING) {
+    if (this.props.page !== actions.PageStates.GAMING_PAGE) {
       return null;
     } else {
       var playerNumber = this.props.cards.length - 3;
@@ -38,13 +39,13 @@ module.exports = React.createClass({
       var lowerCards = allCards.slice(playerNumber / 2, playerNumber);
       var middleCards = allCards.slice(playerNumber, allCards.length);
       return (
-        <div className={"game_table center_window"}>
+        <div className={"game_table"}>
           <div className={"cards upper"}>{upperCards}</div>
           <div className={"cards middle"}>{middleCards}</div>
           <div className={"cards lower"}>{lowerCards}</div>
           <div>
-            <button type="button" onClick={this.backToRoom}>
-              {"Back To Room"}
+            <button type="button" onClick={this.restartGame}>
+              {"Restart Game"}
             </button>
           </div>
         </div>
