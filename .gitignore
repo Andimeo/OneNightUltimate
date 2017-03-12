@@ -94,3 +94,8 @@ webpage/dist
 
 # .idea
 .idea
+
+# eclipse
+werewolf/.classpath
+.project
+.settings/
