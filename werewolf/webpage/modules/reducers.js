@@ -1,24 +1,22 @@
-var Redux = require('redux');
-var actions = require('./actions');
+var Redux = require("redux");
+var actions = require("./actions");
 var initialCardState = {
-  role: '',
-  userName: '',
+  role: "",
+  userName: "",
   isSelected: true,
   isEnableSelect: false
 };
 
 var initialState = {
   page: actions.PageStates.REGISTER,
-  name: '',
+  name: "",
   cards: [
-    Object.assign({}, initialCardState, {userName: '1'}),
-    Object.assign({}, initialCardState, {userName: '2'}),
-    Object.assign({}, initialCardState, {userName: '3'}),
-    Object.assign({}, initialCardState, {userName: '4'}),
-    Object.assign({}, initialCardState, {userName: '5'}),
-    Object.assign({}, initialCardState, {userName: '6'}),
-    Object.assign({}, initialCardState, {userName: '7'}),
-    Object.assign({}, initialCardState, {userName: '8'}),
+    Object.assign({}, initialCardState, {userName: "1"}),
+    Object.assign({}, initialCardState, {userName: "2"}),
+    Object.assign({}, initialCardState, {userName: "3"}),
+    Object.assign({}, initialCardState, {userName: "4"}),
+    Object.assign({}, initialCardState, {userName: "5"}),
+    Object.assign({}, initialCardState, {userName: "6"}),
     Object.assign({}, initialCardState),
     Object.assign({}, initialCardState),
     Object.assign({}, initialCardState)
@@ -26,7 +24,7 @@ var initialState = {
 };
 
 var page = function (state, action) {
-  if ((typeof state) === 'undefined') {
+  if ((typeof state) === "undefined") {
     return initialState.page;
   }
   switch (action.type) {
@@ -41,7 +39,7 @@ var page = function (state, action) {
 };
 
 var name = function (state, action) {
-  if ((typeof state) === 'undefined') {
+  if ((typeof state) === "undefined") {
     return initialState.name;
   }
   switch (action.type) {
@@ -55,7 +53,7 @@ var name = function (state, action) {
 };
 
 var cards = function (state, action) {
-  if ((typeof state) === 'undefined') {
+  if ((typeof state) === "undefined") {
     return initialState.cards;
   }
   switch (action.type) {

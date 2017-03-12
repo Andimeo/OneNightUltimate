@@ -1,5 +1,5 @@
-var ReactRedux = require('react-redux');
-var RegisterForm = require('../components/RegisterForm');
+var ReactRedux = require("react-redux");
+var RegisterForm = require("../components/RegisterForm");
 
 var mapStateToProps = function (state) {
   return {

@@ -1,0 +1,17 @@
+.game_table {
+    width: fit-content;
+}
+
+.game_table > div {
+    text-align: center;
+}
+
+.game_table button {
+    text-align: center;
+    margin-top: 50px;
+    padding: 30px;
+}
+
+.cards > div {
+    margin: 30px 30px;
+}

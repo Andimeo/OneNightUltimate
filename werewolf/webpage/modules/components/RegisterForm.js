@@ -1,6 +1,6 @@
-require('./RegisterForm.css');
-var React = require('react');
-var actions = require('../actions');
+require("./RegisterForm.css");
+var React = require("react");
+var actions = require("../actions");
 
 module.exports = React.createClass({
   propTypes: {
@@ -14,7 +14,7 @@ module.exports = React.createClass({
       return null;
     } else {
       return (
-        <div className="register_form">
+        <div className={"register_form center_window"}>
           <div>{"Your Name"}</div>
           <div>
             <input type="text" ref="name"/>

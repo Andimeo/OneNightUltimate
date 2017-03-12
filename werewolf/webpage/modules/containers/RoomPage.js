@@ -1,5 +1,5 @@
-var ReactRedux = require('react-redux');
-var GameRoom = require('../components/GameRoom');
+var ReactRedux = require("react-redux");
+var GameRoom = require("../components/GameRoom");
 
 var mapStateToProps = function (state) {
   return {

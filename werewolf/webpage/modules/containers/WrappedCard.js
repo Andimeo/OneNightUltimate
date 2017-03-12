@@ -1,6 +1,6 @@
-var ReactRedux = require('react-redux');
-var actions = require('../actions');
-var Card = require('../components/Card');
+var ReactRedux = require("react-redux");
+var actions = require("../actions");
+var Card = require("../components/Card");
 
 var mapStateToProps = function (state) {
   return {};

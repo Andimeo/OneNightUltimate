@@ -1,6 +1,6 @@
-require('./Card.css');
-var React = require('react');
-var classNames = require('classnames');
+require("./Card.css");
+var React = require("react");
+var classNames = require("classnames");
 
 module.exports = React.createClass({
   propTypes: {

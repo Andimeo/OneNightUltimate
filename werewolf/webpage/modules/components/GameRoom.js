@@ -1,5 +1,5 @@
-var React = require('react');
-var actions = require('../actions');
+var React = require("react");
+var actions = require("../actions");
 
 module.exports = React.createClass({
   propTypes: {

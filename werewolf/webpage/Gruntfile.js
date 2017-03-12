@@ -14,7 +14,7 @@ module.exports = function (grunt) {
       }
     },
     lessBrowserify: {
-      output: 'dist/module.css',
+      output: "dist/module.css",
       jsAppend: false
     },
     watch: {
