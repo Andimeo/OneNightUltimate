@@ -5,6 +5,8 @@ module.exports = function (dispatch) {
       case actions.actionTypes.CONFIRM_ENTER:
         dispatch(actions.actions.confirmEnter(data.isHost));
         break;
+      case actions.actionTypes.GAME_BEGIN:
+        dispatch(actions.actions.gameBegin(data.players, data.myInfo));
     }
   };
 
@@ -13,13 +15,13 @@ module.exports = function (dispatch) {
     switch (data.type) {
       case actions.actionTypes.DO_ENTER:
         setTimeout(function() {
-          dispatch({type: actions.actionTypes.CONFIRM_ENTER, isHost: true})
+          onMessage({type: actions.actionTypes.CONFIRM_ENTER, isHost: true})
         }, 1);
         break;
       case actions.actionTypes.FINISH_SELECTION:
       case actions.actionTypes.RESTART_GAME:
         setTimeout(function() {
-          dispatch({
+          onMessage({
             type: actions.actionTypes.GAME_BEGIN,
             players: [
               {name: "1"},

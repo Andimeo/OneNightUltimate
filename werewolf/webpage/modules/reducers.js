@@ -94,12 +94,12 @@ var cards = function (state, action) {
         return card;
       });
     case actions.actionTypes.FINISH_SELECTION:
-      var selectedIndex = state.map(function (card, index) {
+      var selectedIndexes = state.map(function (card, index) {
         if (card.isSelected) {
           return index;
         }
       });
-      window.client.send({type: action.type, selectedIndex: selectedIndex});
+      window.client.send({type: action.type, selectedIndexes: selectedIndexes});
       return state.map(function (card) {
         return Object.assign({}, card, {
           isSelected: false,
