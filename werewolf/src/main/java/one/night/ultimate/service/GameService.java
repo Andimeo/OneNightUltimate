@@ -28,7 +28,7 @@ public class GameService {
 	public GameService() {
 		roleRegistry = new ArrayList<Role>();
 		map = new ConcurrentHashMap<String, Player>();
-		status.set(Status.INITIALIZED);
+		status = new AtomicReference<Status>(Status.INITIALIZED);
 	}
 
 	public ResponseMessage Login(String userName) {
