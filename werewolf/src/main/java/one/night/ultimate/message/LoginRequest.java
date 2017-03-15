@@ -1,12 +1,12 @@
 package one.night.ultimate.message;
 
-public class LoginMessage {
+public class LoginRequest {
 	private String userName;
 
-	public LoginMessage() {
+	public LoginRequest() {
 	}
 
-	public LoginMessage(String userName) {
+	public LoginRequest(String userName) {
 		this.setUserName(userName);
 	}
 

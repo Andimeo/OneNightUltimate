@@ -55,6 +55,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.reflections</groupId>
+			<artifactId>reflections</artifactId>
+			<version>0.9.9-RC1</version>
+		</dependency>
 	</dependencies>
 
 	<properties>
@@ -109,7 +115,7 @@
 							<executable>cp</executable>
 							<workingDirectory>${basedir}/webpage</workingDirectory>
 							<arguments>
-								<argument>-r</argument>
+								<argument>-R</argument>
 								<argument>dist</argument>
 								<argument>index.html</argument>
 								<argument>${basedir}/src/main/resources/static</argument>

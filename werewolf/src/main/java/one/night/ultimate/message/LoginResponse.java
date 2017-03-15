@@ -1,16 +1,17 @@
 package one.night.ultimate.message;
 
-public class LoginStatus {
-	public static final LoginStatus FAILED_LOGIN_STATUS = new LoginStatus();
+public class LoginResponse extends ResponseMessage{
+	public static final LoginResponse FAILED_LOGIN_STATUS = new LoginResponse();
 
 	private boolean isSuccess;
 	private boolean isHost;
 
-	public LoginStatus() {
+	public LoginResponse() {
 		this(false, false);
 	}
 
-	public LoginStatus(boolean isSuccess, boolean isHost) {
+	public LoginResponse(boolean isSuccess, boolean isHost) {
+		super();
 		this.isSuccess = isSuccess;
 		this.isHost = isHost;
 	}
